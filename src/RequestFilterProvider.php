@@ -50,6 +50,11 @@ class RequestFilterProvider extends ServiceProvider
      */
     private function updateValue($data, $key, $newValue)
     {
+        if(isset($data[$key])){
+            $data[$key] = $newValue;
+            return $data;
+        }
+
         $lastKey = explode('.', $key);
         $lastKey = end($lastKey);
 
